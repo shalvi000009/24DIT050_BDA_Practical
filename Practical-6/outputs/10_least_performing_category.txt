@@ -1,0 +1,12 @@
+===== LEAST-PERFORMING CATEGORY =====
++-----------+-------------------+
+|   Category|Total_Final_Revenue|
++-----------+-------------------+
+|   Clothing|            19710.0|
+|Accessories|            24750.0|
+|   Footwear|            27000.0|
+|  Furniture|           108000.0|
+|Electronics|           346500.0|
++-----------+-------------------+
+
+Least-Performing Category (After 10% Discount): Clothing with Final Revenue: INR 19,710.00

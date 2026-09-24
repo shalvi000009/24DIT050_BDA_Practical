@@ -1,0 +1,17 @@
+===== SCHEMA =====
+root
+ |-- OrderID: string (nullable = true)
+ |-- Product: string (nullable = true)
+ |-- Category: string (nullable = true)
+ |-- Quantity: integer (nullable = true)
+ |-- Price: integer (nullable = true)
+ |-- City: string (nullable = true)
+
+
+===== DATA TYPES =====
+Column: OrderID    | Type: string
+Column: Product    | Type: string
+Column: Category   | Type: string
+Column: Quantity   | Type: int
+Column: Price      | Type: int
+Column: City       | Type: string

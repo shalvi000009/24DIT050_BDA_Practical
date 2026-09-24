@@ -1,0 +1,14 @@
+===== TOP-SELLING PRODUCTS =====
++----------+-------------------+
+|   Product|Total_Quantity_Sold|
++----------+-------------------+
+|    TShirt|                 18|
+|     Watch|                 11|
+|     Shoes|                 10|
+|Headphones|                 10|
+|    Mobile|                  8|
+|     Chair|                  6|
+|     Jeans|                  5|
+|    Laptop|                  3|
+|      Sofa|                  3|
++----------+-------------------+

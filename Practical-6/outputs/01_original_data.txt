@@ -1,0 +1,20 @@
+===== ORIGINAL DATA =====
++-------+----------+-----------+--------+-----+---------+
+|OrderID|   Product|   Category|Quantity|Price|     City|
++-------+----------+-----------+--------+-----+---------+
+|   0001|    Laptop|Electronics|       2|55000|Ahmedabad|
+|   0002|    Mobile|Electronics|       5|25000|    Surat|
+|   0003|Headphones|Electronics|      10| 2000| Vadodara|
+|   0004|    TShirt|   Clothing|       8|  800|Ahmedabad|
+|   0005|     Jeans|   Clothing|       5| 1500|    Surat|
+|   0006|      Sofa|  Furniture|       2|30000|Ahmedabad|
+|   0007|     Chair|  Furniture|       6| 5000|   Rajkot|
+|   0008|     Watch|Accessories|       7| 2500|    Surat|
+|   0009|     Shoes|   Footwear|       4| 3000| Vadodara|
+|   0010|    Laptop|Electronics|       1|55000|   Rajkot|
+|   0011|    TShirt|   Clothing|      10|  800|    Surat|
+|   0012|      Sofa|  Furniture|       1|30000| Vadodara|
+|   0013|    Mobile|Electronics|       3|25000|Ahmedabad|
+|   0014|     Shoes|   Footwear|       6| 3000|    Surat|
+|   0015|     Watch|Accessories|       4| 2500|   Rajkot|
++-------+----------+-----------+--------+-----+---------+

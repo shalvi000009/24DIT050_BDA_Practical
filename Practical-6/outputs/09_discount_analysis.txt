@@ -1,0 +1,20 @@
+===== DISCOUNT ANALYSIS =====
++-------+----------+-----------+--------+-----+---------+-------+--------+-------------+
+|OrderID|   Product|   Category|Quantity|Price|     City|Revenue|Discount|Final_Revenue|
++-------+----------+-----------+--------+-----+---------+-------+--------+-------------+
+|   0001|    Laptop|Electronics|       2|55000|Ahmedabad| 110000| 11000.0|      99000.0|
+|   0002|    Mobile|Electronics|       5|25000|    Surat| 125000| 12500.0|     112500.0|
+|   0003|Headphones|Electronics|      10| 2000| Vadodara|  20000|  2000.0|      18000.0|
+|   0004|    TShirt|   Clothing|       8|  800|Ahmedabad|   6400|   640.0|       5760.0|
+|   0005|     Jeans|   Clothing|       5| 1500|    Surat|   7500|   750.0|       6750.0|
+|   0006|      Sofa|  Furniture|       2|30000|Ahmedabad|  60000|  6000.0|      54000.0|
+|   0007|     Chair|  Furniture|       6| 5000|   Rajkot|  30000|  3000.0|      27000.0|
+|   0008|     Watch|Accessories|       7| 2500|    Surat|  17500|  1750.0|      15750.0|
+|   0009|     Shoes|   Footwear|       4| 3000| Vadodara|  12000|  1200.0|      10800.0|
+|   0010|    Laptop|Electronics|       1|55000|   Rajkot|  55000|  5500.0|      49500.0|
+|   0011|    TShirt|   Clothing|      10|  800|    Surat|   8000|   800.0|       7200.0|
+|   0012|      Sofa|  Furniture|       1|30000| Vadodara|  30000|  3000.0|      27000.0|
+|   0013|    Mobile|Electronics|       3|25000|Ahmedabad|  75000|  7500.0|      67500.0|
+|   0014|     Shoes|   Footwear|       6| 3000|    Surat|  18000|  1800.0|      16200.0|
+|   0015|     Watch|Accessories|       4| 2500|   Rajkot|  10000|  1000.0|       9000.0|
++-------+----------+-----------+--------+-----+---------+-------+--------+-------------+

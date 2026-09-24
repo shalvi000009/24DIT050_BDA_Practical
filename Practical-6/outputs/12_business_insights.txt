@@ -1,0 +1,7 @@
+===== BUSINESS INSIGHTS =====
+1. Highest Revenue Category: 'Electronics' dominates sales with INR 385,000.00.
+2. Top Selling Product: 'TShirt' recorded the highest sales volume (18 units).
+3. Top Revenue City: 'Ahmedabad' generated the highest revenue (INR 251,400.00).
+4. Least Performing Category: 'Clothing' generated lowest revenue (INR 19,710.00 after discount).
+5. Inventory Recommendation: Maintain higher stock levels for Electronics and top-volume items like TShirts and Mobiles.
+6. Marketing Recommendation: Focus promotional campaigns and bundling on lower-performing categories like Clothing.

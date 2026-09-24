@@ -1,0 +1,49 @@
+================================================================================
+CSUE301 - BIG DATA ANALYTICS: PRACTICAL 6 VIVA & POST-LAB ANSWERS
+Student ID: 24DIT050
+Topic: E-Commerce Sales Analysis Using Spark DataFrames
+================================================================================
+
+--------------------------------------------------------------------------------
+PART 1: VIVA QUESTIONS AND ANSWERS
+--------------------------------------------------------------------------------
+
+Q1. Why are Spark DataFrames preferred over traditional spreadsheets for large-scale analytics?
+Answer:
+Spark DataFrames are designed for distributed, parallel computing across multi-node clusters. Unlike traditional spreadsheets (such as MS Excel) which are limited by single-node memory and row limits (approx. 1 million rows), Spark DataFrames can seamlessly handle gigabytes and terabytes of e-commerce data. Spark also optimizes query execution plans automatically through its Catalyst Optimizer.
+
+Q2. What is the role of groupBy() in data aggregation?
+Answer:
+The groupBy() function in PySpark is used to collect and organize data records having identical values in specified columns into groups. Once grouped, aggregate functions like sum(), avg(), count(), max(), and min() can be applied using the agg() transformation. In this practical, groupBy("Category") allows us to aggregate sales and calculate category-wise revenue.
+
+Q3. Explain the difference between transformations and actions in Spark.
+Answer:
+Transformations (e.g., select, filter, withColumn, groupBy, orderBy) create a new DataFrame from an existing one and are lazily evaluated, meaning Spark builds a execution DAG without computing immediately. Actions (e.g., show, count, collect, write) trigger the actual execution of the transformation plan and return results to the driver program or write data to disk.
+
+Q4. How does Spark improve scalability for e-commerce analytics?
+Answer:
+Spark improves scalability by partitioning large e-commerce datasets across multiple worker nodes in a cluster. Each node processes its assigned data partition in parallel. In-memory computing (RAM caching) minimizes disk I/O operations, allowing real-time processing of millions of transactions, customer clicks, and order logs without system crashes or bottlenecks.
+
+Q5. Which category contributes the highest revenue and what business action can be taken?
+Answer:
+Based on our PySpark DataFrame analysis, the "Electronics" category contributes the highest total revenue of ₹3,85,000 (approx. 65.88% of overall revenue). The business should maintain high inventory levels to prevent stockouts, partner with premium suppliers for bulk pricing discounts, and feature Electronics prominently on the homepage to maximize profitability.
+
+--------------------------------------------------------------------------------
+PART 2: POST-LABORATORY WORK
+--------------------------------------------------------------------------------
+
+1. Identify the highest revenue category:
+From the PySpark analytical execution, "Electronics" is the highest revenue-generating category with ₹3,85,000 in total sales.
+
+2. Suggest marketing strategies for top-performing categories:
+- Bundle high-value electronics with accessories (e.g., Laptop + Mouse/Headphones) to increase average order value.
+- Offer targeted loyalty rewards and early-bird discounts to repeat buyers of high-tech products.
+- Utilize targeted online ad campaigns emphasizing warranty and fast delivery for premium electronic items.
+
+3. Compare Spark analytics with Excel-based analysis:
+- Volume & Speed: Excel struggles beyond 100,000 rows, whereas Spark handles billions of rows in parallel.
+- Memory: Excel relies on local RAM, whereas Spark utilizes distributed cluster memory.
+- Automation: Spark scripts provide reproducible, automated data pipelines suitable for production, whereas Excel requires manual formulas and spreadsheet clicks.
+
+4. Explain how Spark SQL can be used for advanced reporting:
+Spark SQL allows users to create temporary view tables (df.createOrReplaceTempView("sales")) and run standard SQL queries directly on DataFrames. This enables complex reporting using window functions, subqueries, CTEs, and JOINs across multiple tables (e.g., orders, customers, products), which can be integrated into BI dashboards like Tableau or PowerBI.

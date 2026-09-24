@@ -1,0 +1,6 @@
+===== MONTHLY REVENUE =====
+Monthly revenue analysis requires an OrderDate column.
+The current dataset does not contain a date column.
+To perform monthly revenue analysis in PySpark when dates are available:
+  df_dated = df.withColumn('OrderDate', to_date(col('DateStr'), 'yyyy-MM-dd'))
+  monthly_rev = df_dated.groupBy(month('OrderDate').alias('Month')).agg(sum('Revenue'))

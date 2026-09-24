@@ -1,0 +1,8 @@
+===== TOP 3 REVENUE-GENERATING CITIES =====
++---------+-------------+
+|     City|Total_Revenue|
++---------+-------------+
+|Ahmedabad|       251400|
+|    Surat|       176000|
+|   Rajkot|        95000|
++---------+-------------+

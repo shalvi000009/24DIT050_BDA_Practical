@@ -1,0 +1,10 @@
+===== CATEGORY-WISE REVENUE =====
++-----------+-------------+
+|   Category|Total_Revenue|
++-----------+-------------+
+|Electronics|       385000|
+|  Furniture|       120000|
+|   Footwear|        30000|
+|Accessories|        27500|
+|   Clothing|        21900|
++-----------+-------------+
