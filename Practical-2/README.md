@@ -11,17 +11,17 @@
 DataAnalytics Inc. processes large-scale customer, sales, and marketing data using the Hadoop ecosystem. Due to the increasing volume of data, the company has decided to migrate its storage infrastructure from traditional file systems to Hadoop Distributed File System (HDFS). As a Hadoop Administrator, the task is to install and configure Hadoop in a single-node cluster environment, verify Hadoop services, manage HDFS storage, and perform file management operations efficiently.
 
 ## 2. Objective
-- Install and configure Hadoop in a single-node environment.
+- Install and configure Hadoop in a single-node pseudo-distributed environment.
 - Verify Hadoop installation and running cluster daemons (`NameNode`, `DataNode`, `SecondaryNameNode`, `ResourceManager`, `NodeManager`).
 - Perform HDFS file and directory operations (`mkdir`, `put`, `cat`, `cp`, `mv`, `get`, `rm`, `rmdir`).
 - Monitor Hadoop cluster health and HDFS storage utilization using `hdfs dfsadmin -report` and `hdfs dfs -du -h`.
-- Understand the architecture and inner workings of HDFS.
+- Understand the working architecture of HDFS and block storage mechanisms.
 
 ## 3. Environment & Workspace Description
 - **Cluster Mode:** Single-Node Pseudo-Distributed Hadoop Cluster
 - **Hadoop Home:** `/usr/local/hadoop` or `~/hadoop`
 - **HDFS Root Path:** `hdfs://localhost:9000/`
-- **User Directory in HDFS:** `/user/24DIT050/` or `/user/hadoop/`
+- **User Directory in HDFS:** `/user/24DIT050/`
 
 ## 4. Implementation & Technologies
 - **Operating System:** Ubuntu Linux (WSL)
@@ -33,8 +33,8 @@ DataAnalytics Inc. processes large-scale customer, sales, and marketing data usi
 
 ## 5. Key Analysis & Workflow Executed
 1. **Service Verification:** Checked running Hadoop processes using `jps` to ensure NameNode, DataNode, and YARN daemons were active.
-2. **Directory Management:** Created dedicated project directories in HDFS using `hdfs dfs -mkdir -p /bda_data/raw`.
-3. **Data Upload:** Transferred local sample datasets into HDFS using `hdfs dfs -put local_sales.csv /bda_data/raw/`.
+2. **Directory Management:** Created dedicated project directories in HDFS using `hdfs dfs -mkdir -p /user/24DIT050/bda_input`.
+3. **Data Upload:** Transferred local sample datasets into HDFS using `hdfs dfs -put local_sales.csv /user/24DIT050/bda_input/`.
 4. **File Inspection & Manipulation:** Displayed file contents directly from HDFS using `hdfs dfs -cat`, copied files within HDFS using `-cp`, renamed and moved files using `-mv`.
 5. **Data Retrieval & Deletion:** Downloaded HDFS files back to the local Linux file system using `hdfs dfs -get` and deleted temporary directories using `-rm -r`.
 6. **Cluster Health & Storage Report:** Evaluated total capacity, used space, live DataNodes, and block distribution using `hdfs dfsadmin -report` and `hdfs dfs -du -h`.
