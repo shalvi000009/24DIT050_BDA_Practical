@@ -1,0 +1,16 @@
+# Python virtual environments & bytecode
+.venv/
+venv/
+ENV/
+__pycache__/
+*.pyc
+
+# IDE configs
+.idea/
+.vscode/
+
+# Spark temp logs
+*.log
+metastore_db/
+derby.log
+checkpoint/

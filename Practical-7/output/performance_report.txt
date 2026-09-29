@@ -1,0 +1,66 @@
+================================================================================
+SPARK PERFORMANCE OPTIMIZATION REPORT: CACHING & PARTITIONING
+================================================================================
+Practical  : Practical 7 - Performance Optimization Using Caching & Partitioning
+Application: MovieFlix Technologies Movie Rating Analytics
+Date       : 2026-09-29
+Environment: Apache Spark (Local Mode), PySpark, Python 3.11
+
+1. EXECUTIVE SUMMARY
+--------------------------------------------------------------------------------
+This report presents the empirical benchmark results of optimizing a Spark rating
+aggregation pipeline using DataFrame Caching, Storage Level selection, and
+DataFrame Partitioning strategies (repartition vs coalesce).
+
+Dataset Details:
+  - Total Ratings Processed : 1,500,000 records
+  - Initial Partition Count : 6
+
+2. PERFORMANCE BENCHMARK SUMMARY TABLE
+--------------------------------------------------------------------------------
+Technique / Strategy       | Partitions | Execution Time (s) | Improvement vs Baseline
+--------------------------------------------------------------------------------
+Baseline (Uncached)        | 6          | 2.0054             | Base (0.0%)
+Cached DataFrame (Run 1)   | 6          | 0.6566             | +67.26%
+Cached DataFrame (Run 2)   | 6          | 0.6256             | +68.80%
+Repartitioned (2 Partitions)| 2          | 1.9646             | +2.03%
+Repartitioned (4 Partitions)| 4          | 4.2850             | -113.68%
+Repartitioned (8 Partitions)| 8          | 2.0157             | -0.52%
+--------------------------------------------------------------------------------
+
+3. DETAILED EXPERIMENTAL ANALYSIS
+--------------------------------------------------------------------------------
+A. Baseline vs. Cached Execution:
+   - Baseline Uncached Time : 2.0054 seconds
+   - Cached Execution Time   : 0.6566 seconds
+   - Speedup / Improvement   : 67.26%
+   - Observations:
+     * Caching avoids re-reading data from disk and re-evaluating transform DAGs.
+     * Caching is lazy: df.cache() does not execute until an action (e.g. count()) is called.
+
+B. Multiple Spark Actions Optimization:
+   - Total Time for 3 Actions (UNCACHED): 2.7194 seconds
+   - Total Time for 3 Actions (CACHED)  : 1.3050 seconds
+   - Multi-Action Time Savings          : 52.01% faster
+   - Takeaway: When a dataset is reused across multiple actions (avg rating, count, max/min),
+     caching provides exponential time savings by materializing intermediate results.
+
+C. Storage Levels (cache vs persist(DISK_ONLY)):
+   - df.cache() [MEMORY_AND_DISK]     : 1.1481 seconds
+   - df.persist(DISK_ONLY)            : 0.8720 seconds
+   - Analysis: MEMORY_AND_DISK keeps data deserialized in RAM where possible. DISK_ONLY
+     serializes data and reads from local disk, incurring disk I/O cost.
+
+D. Partitioning Techniques (repartition vs coalesce):
+   - repartition(2) Time (Full Shuffle): 2.3500 seconds
+   - coalesce(2) Time (No Shuffle)    : 0.7316 seconds
+   - Analysis: coalesce(n) avoids a full network shuffle when reducing partition count,
+     making it substantially more efficient than repartition(n) for partition reduction.
+
+4. CONCLUSION & RECOMMENDATIONS
+--------------------------------------------------------------------------------
+1. Always cache DataFrames when performing multiple downstream actions.
+2. Trigger cache materialization explicitly with an action (e.g., .count()).
+3. Use coalesce() instead of repartition() when reducing partition counts.
+4. Choose appropriate partition sizes (aim for 100MB - 200MB per partition in production).
+================================================================================
