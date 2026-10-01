@@ -1,0 +1,112 @@
+================================================================================
+TRENDPULSE SOCIAL MEDIA ANALYTICS - EXECUTIVE TREND DETECTION REPORT
+================================================================================
+
+1. PRACTICAL TITLE:
+   Social Media Trend Detection Using PySpark
+
+2. OBJECTIVE:
+   To build a scalable PySpark data processing and analytics pipeline that extracts,
+   cleans, aggregates, ranks, categorizes, and visualizes trending hashtags from multi-platform
+   social media activity data to provide business intelligence.
+
+3. SCENARIO:
+   As a Big Data Analyst at TrendPulse Social Media Analytics, the marketing team requires
+   real-time identification of top trending hashtags, regional interest variations, platform dynamics,
+   and content categories from millions of social post feeds (Twitter/X, Instagram, Facebook, LinkedIn).
+
+4. DATASET DESCRIPTION:
+   - File Path: data/hashtags.csv
+   - Format: Comma-Separated Values (CSV)
+   - Fields: Hashtag, Date, Region, Platform
+   - Type: Simulated realistic social media activity feed with reproducible random seed.
+
+5. NUMBER OF RECORDS:
+   - Total Raw Loaded Records: 1500
+   - Cleaned & Validated Records: 1490
+
+6. NUMBER OF UNIQUE HASHTAGS:
+   - Distinct Hashtags Identified: 28
+
+7. DATA VALIDATION RESULTS:
+   - Missing/Null Hashtags Dropped: 10
+   - Whitespace Cleaning: Applied PySpark trim() to remove leading/trailing spaces.
+   - Casing Normalization: Standardized hashtags to uppercase (e.g., #ai, #Ai -> #AI) to unify duplicates.
+
+8. TOP 10 TRENDING HASHTAGS:
+    1. #CRICKET             | Frequency: 128 mentions
+    2. #AI                  | Frequency: 115 mentions
+    3. #TECHNOLOGY          | Frequency: 103 mentions
+    4. #MOVIES              | Frequency: 96 mentions
+    5. #STARTUP             | Frequency: 92 mentions
+    6. #IPL                 | Frequency: 81 mentions
+    7. #PYTHON              | Frequency: 73 mentions
+    8. #MUSIC               | Frequency: 71 mentions
+    9. #CODING              | Frequency: 63 mentions
+   10. #BOLLYWOOD           | Frequency: 56 mentions
+
+9. TOP 3 TRENDING HASHTAGS:
+   1. #CRICKET - 128 mentions
+   2. #AI - 115 mentions
+   3. #TECHNOLOGY - 103 mentions
+
+10. DAILY TREND ANALYSIS (WINDOW FUNCTIONS):
+    Date-by-Date Top Trending Hashtags:
+   - Date 2026-09-01: #CRICKET dominated with 30 mentions.
+   - Date 2026-09-02: #CRICKET dominated with 21 mentions.
+   - Date 2026-09-03: #AI dominated with 28 mentions.
+   - Date 2026-09-04: #STARTUP dominated with 27 mentions.
+   - Date 2026-09-05: #CRICKET dominated with 29 mentions.
+
+11. REGIONAL ANALYSIS:
+    Top Trending Hashtags by Region:
+   - Delhi          : Top trends: #STARTUP (24), #CRICKET (23)
+   - Gujarat        : Top trends: #CRICKET (27), #AI (25)
+   - Karnataka      : Top trends: #AI (26), #CRICKET (25)
+   - Maharashtra    : Top trends: #CRICKET (32), #AI (25)
+   - Tamil Nadu     : Top trends: #TECHNOLOGY (29), #IPL (26)
+
+12. PLATFORM ANALYSIS:
+    Top Trending Hashtags by Social Media Platform:
+   - Facebook       : Top trends: #MOVIES (31), #CRICKET (30)
+   - Instagram      : Top trends: #CRICKET (33), #AI (32)
+   - LinkedIn       : Top trends: #CRICKET (32), #STARTUP (27)
+   - Twitter        : Top trends: #MOVIES (33), #CRICKET (33)
+
+13. CATEGORY ANALYSIS:
+    Distribution of Mentions by Content Category:
+   - Technology     :  501 mentions (33.6% share)
+   - Sports         :  343 mentions (23.0% share)
+   - Entertainment  :  320 mentions (21.5% share)
+   - Business       :  256 mentions (17.2% share)
+   - Other          :   70 mentions (4.7% share)
+
+14. VISUALIZATION SUMMARY:
+    Generated four high-resolution analytical charts in 'output/charts/':
+    - top_hashtags.png: Frequency distribution of top 10 trending hashtags.
+    - daily_trends.png: Timeline analysis of top 5 hashtags over 5 sample days.
+    - category_distribution.png: Donut chart showcasing market interest by domain.
+    - regional_hashtags.png: Multi-bar chart comparing hashtag popularity across Indian states.
+
+15. BUSINESS INTERPRETATION & RECOMMENDATIONS:
+    - Primary Focus Area: Artificial Intelligence (#AI) and Technology topics show high overall volume,
+      indicating strong user engagement and demand for tech-oriented advertising campaigns.
+    - Regional Strategy: Sports (#CRICKET) dominates specific regional feeds (e.g., Maharashtra/Gujarat),
+      suggesting targeted local brand sponsorships during sporting seasons.
+    - Platform Strategy: Visual platforms (Instagram) lean towards Entertainment (#MOVIES, #MUSIC),
+      whereas professional platforms (LinkedIn) exhibit higher density in Business (#STARTUP, #FINANCE).
+    - Marketing Recommendation: Allocate ad spend primarily toward Technology and Sports campaigns,
+      leveraging peak day engagement periods identified in the daily window analysis.
+
+16. LIMITATIONS:
+    - Data Scope: Insights are derived from a sampled/simulated dataset created for educational demonstration.
+    - Semantic Nuance: Keyword-based categorization does not evaluate post sentiment (positive/negative context).
+
+17. CONCLUSION:
+    The PySpark trend detection solution successfully processed raw hashtag records, performed data quality validation,
+    executed window-based multi-dimensional analytics, generated publication-grade visual charts, and delivered
+    actionable marketing insights.
+
+================================================================================
+Report generated by Practical9_SocialMediaTrendDetection PySpark Pipeline.
+================================================================================
