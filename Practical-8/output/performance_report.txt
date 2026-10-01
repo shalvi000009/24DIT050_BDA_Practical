@@ -1,0 +1,77 @@
+========================================================================================
+FINEDGE SECURITIES LTD. - STOCK MARKET ANALYTICAL PERFORMANCE REPORT
+Practical 8: Stock Market Analytics Using Window-Based Analysis
+========================================================================================
+
+1. PRACTICAL TITLE & CONTEXT
+   Title: Stock Market Analytics Using Window-Based Analysis
+   Scenario: FinEdge Securities Ltd. provides financial analytics insights to market investors.
+   Objective: Analyze high-frequency stock price updates to evaluate price trends, daily returns, 
+              moving averages, and stock volatility using Apache Spark Window functions.
+
+2. DATASET SUMMARY & SPARK CONFIGURATION
+   Dataset File       : data/stock_data.csv
+   Total Records      : 75
+   Stock Symbols      : AAPL, AMZN, GOOGL, MSFT, TSLA
+   Required Columns   : Timestamp, Stock, Price
+   Spark Version      : 3.5.1
+   Master Mode        : local[*]
+   Shuffle Partitions : 4
+
+3. DATA VALIDATION & PREPROCESSING
+   - Data integrity checks confirmed zero missing or null records in Timestamp, Stock, and Price.
+   - Timestamp strings were converted to PySpark DateType (YYYY-MM-DD).
+   - Stock prices were cast to DoubleType numeric format.
+
+4. METHODOLOGY & SPARK WINDOW CONCEPTS
+   a) Window Partitioning & Ordering:
+      Window specification partitioned by 'Stock' and ordered by 'Timestamp'.
+      Expression: Window.partitionBy("Stock").orderBy("Timestamp")
+
+   b) Daily Return Calculation:
+      Computed using lag() function to retrieve the prior trading day's price.
+      Formula: DailyReturn = ((Current Price - Previous Price) / Previous Price) * 100
+      Edge-case handling: First record for each stock defaults to 0.0% return.
+
+   c) Moving Average (3-Period):
+      Computed using a sliding window across current row and prior 2 rows.
+      Expression: Window.partitionBy("Stock").orderBy("Timestamp").rowsBetween(-2, 0)
+      Formula: 3P-MA = Avg(Price) over window
+
+   d) Volatility Metric:
+      Calculated as the Standard Deviation (stddev) of Daily Returns for each stock.
+      Interpretation: Higher standard deviation reflects higher price fluctuation/risk.
+
+   e) Top-Performing Stock Identification Metric:
+      Metric: Cumulative Return (%) over the observed trading period.
+      Formula: Cumulative Return = ((Last Price - First Price) / First Price) * 100
+      Note: Evaluated strictly over timestamp order using first() and last() window aggregations.
+
+5. ANALYTICAL RESULTS SUMMARY
+----------------------------------------------------------------------------------------
+Stock   FirstPrice  LastPrice  AvgPrice   MinPrice   MaxPrice   CumReturn(%)  Volatility(%)
+----------------------------------------------------------------------------------------
+AMZN    $175.00    $197.00    $185.51    $175.00    $197.00    12.57      % 0.67       %
+TSLA    $210.00    $235.20    $217.55    $205.10    $235.20    12.00      % 1.96       %
+GOOGL   $160.00    $173.20    $165.85    $159.90    $173.20    8.25       % 0.78       %
+AAPL    $185.00    $198.50    $190.63    $184.20    $198.50    7.30       % 0.76       %
+MSFT    $415.00    $436.00    $424.81    $414.80    $436.00    5.06       % 0.51       %
+----------------------------------------------------------------------------------------
+
+6. KEY FINDINGS & TOP-PERFORMING STOCK
+   - Top-Performing Stock : AMZN
+   - Cumulative Return    : 12.57%
+   - Volatility (StdDev)  : 0.67%
+   - Observations:
+     1. AMZN generated the highest cumulative return (12.57%) over the analyzed timeframe.
+     2. Moving averages effectively smooth out short-term noise to reveal underlying price momentum.
+     3. Highest absolute price (e.g. MSFT at ~$436) does not equate to highest return percentage.
+
+7. LIMITATIONS & DISCLAIMER
+   - Limitations: The analysis reflects daily end-of-day prices without intraday order-book depth or trading volumes.
+   - Disclaimer: These observations are based on simulated/sample data for academic demonstration 
+     and should not be interpreted as real financial investment advice.
+
+========================================================================================
+Report Generated Successfully by PySpark Window Analytical Engine
+========================================================================================
