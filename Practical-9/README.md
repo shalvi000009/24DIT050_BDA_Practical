@@ -1,6 +1,8 @@
 # Practical 9: Social Media Trend Detection Using PySpark
 
 ## 📌 Practical Overview
+
+**Student ID:** 24DIT050  
 * **Title:** Social Media Trend Detection Using PySpark
 * **Course:** Big Data Analytics (BDA)
 * **Domain:** Social Media Analytics & Mass Data Processing
