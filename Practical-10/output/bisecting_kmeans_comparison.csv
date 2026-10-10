@@ -1,0 +1,3 @@
+Algorithm,k,Training_Time_Sec,WSSSE_Cost,Approach
+Standard Parallel K-Means,5,1.5234,10837.73,Divisive centroid assignment with global convergence
+Bisecting K-Means,5,5.5167,25744.06,Hierarchical divisive top-down clustering

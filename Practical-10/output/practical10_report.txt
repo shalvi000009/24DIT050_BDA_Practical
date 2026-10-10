@@ -1,0 +1,60 @@
+================================================================================
+PRACTICAL 10 LABORATORY REPORT
+Scalable K-Means Clustering on Customer Segmentation Data using Apache Spark MLlib
+================================================================================
+
+1. OBJECTIVE & PROBLEM DEFINITION
+--------------------------------------------------------------------------------
+RetailEdge Analytics marketing team requires segmenting >10M customer profiles based on
+historical purchase behavior. Traditional single-node clustering algorithms face out-of-memory
+(OOM) errors and processing bottlenecks. This practical demonstrates scalable parallel K-Means
+using Apache Spark MLlib.
+
+2. DATASET SUMMARY & PREPROCESSING
+--------------------------------------------------------------------------------
+Dataset Size: 20,000 Records (Demonstration Dataset)
+Features Extracted: total_spend, purchase_count, avg_basket_size, days_since_last_purchase
+Excluded Fields: customer_id (Excluded to prevent numerical identifier bias)
+Scaling Method: Spark MLlib StandardScaler (withMean=True, withStd=True)
+
+3. SPARK MLLIB K-MEANS EXPERIMENTAL RESULTS (k=5)
+--------------------------------------------------------------------------------
+Training Time: 3.5010 seconds
+Within Set Sum of Squared Errors (WSSSE): 10,837.73
+
+4. CLUSTER SUMMARY & SEGMENT INTERPRETATION
+--------------------------------------------------------------------------------
+ cluster  Customers  Avg Spend  Avg Purchases  Avg Basket  Avg Recency
+       0       5044    3653.90          47.72       75.20        21.20
+       1       2942    2373.51          21.30      105.97       240.26
+       2       3921    8561.66          69.37      125.62        11.61
+       3       3251     847.48          11.32       68.10        11.03
+       4       4842     487.04           5.83       64.44       134.47
+
+Business Segment Personas:
+  Cluster 0 [Frequent Moderate Spenders]: Steady purchase frequency (47.7), moderate spend ($3,653.90), recent activity (21.2 days).
+  Cluster 1 [At-Risk Inactive Customers]: High recency (240.3 days since last purchase), moderate prior spend ($2,373.51). High churn risk.
+  Cluster 2 [High-Value Loyal Customers]: High spend ($8,561.66), high purchase frequency (69.4), low recency (11.6 days). Top revenue driver.
+  Cluster 3 [New / Recent Bargain Buyers]: Low recency (11.0 days), lower transaction count (11.3), moderate basket size ($68.10).
+  Cluster 4 [At-Risk Inactive Customers]: High recency (134.5 days since last purchase), moderate prior spend ($487.04). High churn risk.
+
+5. SUPPLEMENTARY BENCHMARKS
+--------------------------------------------------------------------------------
+A. Bisecting K-Means vs Standard K-Means:
+                Algorithm  k  Training_Time_Sec  WSSSE_Cost                                             Approach
+Standard Parallel K-Means  5             1.5234    10837.73 Divisive centroid assignment with global convergence
+        Bisecting K-Means  5             5.5167    25744.06            Hierarchical divisive top-down clustering
+
+B. Scikit-Learn (Single-Node) vs Apache Spark (Parallel):
+                        Algorithm  Dataset_Size  k  Training_Time_Sec  WSSSE_Inertia                           Architecture
+Scikit-Learn KMeans (Single-Node)         10000  5             2.2058        5469.40     Single-Threaded In-Memory C/Cython
+     Apache Spark Parallel KMeans         10000  5             1.6244        5447.52 Distributed Parallel Spark MLlib (JVM)
+
+6. CONCLUSION & ARCHITECTURAL TAKEAWAYS
+--------------------------------------------------------------------------------
+1. Spark MLlib StandardScaler ensures fair Euclidean distance weighting across features.
+2. The Elbow Method (k=3..7) validated k=5 as the optimal trade-off between compactness and complexity.
+3. Distributed parallel K-Means provides horizontal scalability across large-scale HDFS datasets.
+4. On small local datasets, single-node scikit-learn has lower JVM initialization overhead, but
+   Spark MLlib is indispensable for multi-gigabyte or multi-terabyte datasets.
+================================================================================
