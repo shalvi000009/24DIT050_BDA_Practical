@@ -1,0 +1,30 @@
+========================================================================================
+SUPERSTORE SALES DATA QUALITY & VALIDATION REPORT
+========================================================================================
+Input Dataset Path   : C:\Users\hp\OneDrive\Desktop\.vscode\BDA\Practical-12\data\superstore_sales.csv
+Initial Record Count : 5,000
+
+--- 1. MISSING VALUE ANALYSIS ---
+✔ Zero missing values found across all columns.
+
+--- 2. DUPLICATE RECORD ANALYSIS ---
+Duplicate rows detected: 0
+
+--- 3. DATE VALIDATION & FEATURE ENGINEERING ---
+Invalid Order Dates : 0
+Invalid Ship Dates  : 0
+
+--- 4. NUMERICAL VALUE VALIDATION ---
+Non-positive Sales rows    : 0
+Non-positive Quantity rows : 0
+Invalid Discount values    : 0
+
+--- 5. NEGATIVE PROFIT BUSINESS ANALYSIS ---
+Negative Profit Transactions : 1,552 (31.0%)
+Note: Negative profit transactions are VALID retail orders representing loss-leader items
+      or heavily discounted products (e.g. Tables/Binders with 30%+ discount).
+      These records are preserved for accurate profitability analysis.
+
+========================================================================================
+FINAL CLEANED RECORD COUNT: 5,000 (Dropped 0 rows)
+========================================================================================
