@@ -1,0 +1,3 @@
+method,dataset_size,training_time_sec,accuracy,f1_score,description
+Spark MLlib L-BFGS (Full Batch),16052,2.2422,1.0,1.0,Distributed L-BFGS optimization over full dataset partitions
+Educational Mini-Batch SGD,6522,1.196,1.0,1.0,Partition sub-sampling gradient updates (5 mini-batch iterations)

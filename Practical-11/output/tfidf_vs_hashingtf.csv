@@ -1,0 +1,3 @@
+feature_extractor,feature_dim,training_time_sec,accuracy,precision,recall,f1_score
+CountVectorizer + IDF (Exact Vocab),5000,2.3874,1.0,1.0,1.0,1.0
+HashingTF + IDF (Feature Hashing),4096,2.9903,1.0,1.0,1.0,1.0
