@@ -3,6 +3,7 @@
 ## Practical Information
 - **Course**: Big Data Analytics (BDA)
 - **Practical Number**: Practical 8
+**Student ID:** 24DIT050  
 - **Title**: Stock Market Analytics Using Window-Based Analysis
 - **Company Scenario**: FinEdge Securities Ltd. — Financial Analytics Engine
 - **Technology Stack**: Apache Spark 3.x (PySpark), Python 3.11, Matplotlib, Pandas
